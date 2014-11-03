@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Name of local Docker image.
+NANO_IMAGE=dockernano/znc
+
+# Name of local Docker container.
+NANO_CONTAINER=ZNC

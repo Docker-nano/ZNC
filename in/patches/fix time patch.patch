@@ -1,0 +1,23 @@
++++ package/znc/znc-01-time.patch
+@@ -176,15 +176,14 @@
+ index 2e4cb14..ca6ed38 100644
+ --- a/src/Csocket.cpp
+ +++ b/src/Csocket.cpp
+-@@ -53,6 +53,8 @@
+- #include <unicode/errorcode.h>
+- #endif /* HAVE_ICU */
+- 
++@@ -49,6 +49,7 @@
++ #include <openssl/engine.h>
++ #endif /* HAVE_LIBSSL */
++
+ +#include <time.h>
+-+
+- #include <list>
+- 
++
+  #define CS_SRANDBUFFER 128
++
+ diff --git a/src/FileUtils.cpp b/src/FileUtils.cpp
+ index 7224a49..4c8f1d3 100644
+ --- a/src/FileUtils.cpp

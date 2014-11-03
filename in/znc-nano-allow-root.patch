@@ -1,0 +1,30 @@
++++ /src/main.cpp
+@@ -133,7 +133,7 @@
+ 	int iArg, iOptIndex = -1;
+ 	bool bMakeConf = false;
+ 	bool bMakePass = false;
+-	bool bAllowRoot = false;
++	bool bAllowRoot = true;
+ 	bool bForeground = false;
+ #ifdef ALWAYS_RUN_IN_FOREGROUND
+ 	bForeground = true;
+@@ -244,19 +244,6 @@
+ 		CUtils::PrintStatus(true, "");
+ 	}
+ 
+-	if (isRoot()) {
+-		CUtils::PrintError("You are running ZNC as root! Don't do that! There are not many valid");
+-		CUtils::PrintError("reasons for this and it can, in theory, cause great damage!");
+-		if (!bAllowRoot) {
+-			delete pZNC;
+-			return 1;
+-		}
+-		CUtils::PrintError("You have been warned.");
+-		CUtils::PrintError("Hit CTRL+C now if you don't want to run ZNC as root.");
+-		CUtils::PrintError("ZNC will start in 30 seconds.");
+-		sleep(30);
+-	}
+-
+ 	if (bMakeConf) {
+ 		if (!pZNC->WriteNewConfig(sConfig)) {
+ 			delete pZNC;
